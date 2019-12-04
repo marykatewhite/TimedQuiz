@@ -1,0 +1,18 @@
+#quizTitle {
+    text-align: center;
+    padding-top: 40px;
+}
+
+.lead {
+    text-align: center;
+}
+
+#startBtn {
+    margin-top: 40px;
+    color: white;
+    background-color: dimgray;
+}
+
+.lead {
+    padding-top: 20px;
+}
