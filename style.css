@@ -15,6 +15,7 @@
 
 #startBtn {
     margin-top: 40px;
+    margin-bottom: 40px;
     color: white;
     background-color: dimgray;
 }
@@ -27,4 +28,27 @@
 #quizTitle {
     text-align: center;
     padding-top: 40px;
+}
+
+.form-check {
+    padding-top: 40px;
+}
+
+.optionA {
+    text-align: center;
+}
+
+.optionB {
+    text-align: center;
+}
+
+.optionC {
+    text-align: center;
+}
+.optionD {
+    text-align: center;
+}
+
+#questionText {
+    text-align: center;
 }

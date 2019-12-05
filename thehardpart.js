@@ -64,36 +64,93 @@ var questions = [
 
 var timerEl = document.querySelector("#timerText");
 var startButton = document.querySelector("#startBtn");
+var startingTime = document.querySelector("#timerText")
 var remainingTime = 75
-
+var interval;
 var userScore = 0;
 
-startButton.addEventListener("click", countdown());
+startingTime.textContent = remainingTime
+startButton.addEventListener("click", countdown)
+
 
 function countdown() {
   
-  setInterval(function() {
-    remainingTime -= 1;
-    timerEl.innerHTML = remainingTime;
-    }, 1000);
-    if (remainingTime = 0) {
-      alert("Time's up!")
+  interval = setInterval(function () {
+    remainingTime--;
+    
+    if (remainingTime <= 0) {
+      clearInterval(interval);
+      alert("Time's up!");
     }
-};
+    timerEl.textContent = remainingTime;
+    }, 1000)
+  }
 
-var questyDisplay = document.getElementById("quizBody");
-
-var lastQuestion = questions.length - 1;
-var currentQuestion = questions[0]
+var i = 0
 
 
-function displayQuestion(){  
-  question.innerHTML = "<p>"+ currentQuestion +"</p>";
-  optionA.innerHTML = questions.choices[0];
-  optionB.innerHTML = questions.choices[1];
-  optionB.innerHTML = questions.choice[2];
-  optionC.innerHTML = questions.choice[3];
+function questionDisplay() {
+
+  if (i === questions.length) {
+    document.getElementById("questionText").textContent = "";
+    document.getElementById("OptionA").textContent = "";
+    document.getElementById("OptionB").textContent = "";
+    document.getElementById("OptionC").textContent = "";
+    document.getElementById("OptionA").textContent = "";
+    return;
+  }
+
+  document.getElementById("questionText").textContent = questions[i].choices[0];
+  document.getElementById("OptionA").textContent = questions[i].choices[0];
+  document.getElementById("OptionB").textContent = questions[i].choices[1];
+  document.getElementById("OptionC").textContent = questions[i].choices[2];
+  document.getElementById("OptionD").textContent = questions[i].choices[3];
+
 }
+
+document.getElementById("OptionA").addEventListener("click", nextQuestion)
+document.getElementById("OptionB").addEventListener("click", nextQuestion)
+document.getElementById("OptionC").addEventListener("click", nextQuestion)
+document.getElementById("OptionD").addEventListener("click", nextQuestion)
+
+
+var userRightWrong;
+
+function nextQuestion(event) {
+  if (event.target.textContent === questions[i].answer) {
+    userRightWrong = "Correct"
+  }
+  else {
+    userRightWrong = "Incorrect"
+    timerEl.textContent -= 5
+  }
+
+  document.getElementById("answer").textContent = userRightWrong;
+  i++;
+  showQuestions();
+}
+
+// var questyDisplay = document.getElementById("quizBody");
+
+// document.getElementById("optionA")
+
+// var lastQuestion = questions.length - 1;
+// var currentQuestion = questions[0]
+
+// var optionA = document.getElementById("OptionA");
+// var optionB = document.getElementById("OptionB");
+// var optionC = document.getElementById("OptionC");
+// var optionD = document.getElementById("OptionA");
+
+// function displayQuestion(){  
+//   question.innerHTML = "<p>"+ currentQuestion +"</p>";
+//   optionA.innerHTML = questions.choices[0];
+//   optionB.innerHTML = questions.choices[1];
+//   optionB.innerHTML = questions.choice[2];
+//   optionC.innerHTML = questions.choice[3];
+// }
+
+
 
 // function clickHandler() {
 //   if 
