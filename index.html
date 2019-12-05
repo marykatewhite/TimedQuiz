@@ -11,11 +11,12 @@
 
 <body>
     <nav class="navbar fixed-top navbar-light bg-light">
-        <a class="navbar-brand" href="scoreboard.html">High Scores</a>
-        <a id="scoreDiv" class="navbar-brand justify-content-left">Your Score: </a>
+        <a class="navbar-brand" href="scoreboard.html">VIEW HIGH SCORES</a>
+        <a id="timeRemaining" class="justify-content-left">Time Remaining: <span id="timerText"></span></a>
     </nav>
 
     <container id="quizWindow">
+
         <div class="jumbotron">
             <h1 id="quizTitle" class="display-4">
                 IT'S QUIZ TIME
@@ -24,11 +25,49 @@
             <p class="lead">
                 Answer the questions as fast as you can. If you are wrong, you will feel bad.
             </p>
-
-            <button type="button" id="startBtn" class="btn btn-lg btn-block" onclick="quiz()">START</button>
         </div>
+
+
+        <div class="row">
+            <button type="button" id="startBtn" class="btn btn-lg btn-block">START</button>
+        </div>
+
+
+
+        <div class="row">
+            
+            <div id="quizBody" class="col-lg-12">
+                
+                <div class="form-check form-check-inline">
+
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                    <label class="form-check-label" for="defaultCheck1">
+                        <span id="optionA">afsrgdh</span>
+                    </label>
+
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+                    <label class="form-check-label" for="defaultCheck2">
+                        <span id="optionB">dgndgnjem</span>
+                    </label>
+
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                    <label class="form-check-label" for="defaultCheck3">
+                        <span id="optionC">Tgnftfm</span>
+                    </label>
+
+                    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+                    <label class="form-check-label" for="defaultCheck3">
+                        <span id="optionD">fhmgcjm</span>
+                    </label>
+
+                </div>
+
+            </div>
+        </div>
+
 
     </container>
 
+    <script src="./thehardpart.js"></script>
 </body>
 </html>

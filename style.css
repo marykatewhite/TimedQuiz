@@ -3,8 +3,14 @@
     padding-top: 40px;
 }
 
+#scoreLabel {
+    text-align: center;
+    padding-top: 40px;
+}
+
 .lead {
     text-align: center;
+    padding-top: 20px;
 }
 
 #startBtn {
@@ -13,6 +19,12 @@
     background-color: dimgray;
 }
 
-.lead {
+.scoreIntro {
+    text-align: center;
     padding-top: 20px;
+}
+
+#quizTitle {
+    text-align: center;
+    padding-top: 40px;
 }
