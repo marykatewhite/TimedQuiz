@@ -1,5 +1,5 @@
 var questions = [
-    
+
   {
     title: "What is the body of water that borders Greece, Turkey and Southern Italy?",
     choices: ["Red Sea", "Mediterranean Sea", "Aegean Sea", "Black Sea"],
@@ -59,7 +59,7 @@ var questions = [
     choices: ["Euro", "Krona", "Franc", "Pound"],
     answer: " "
   },
-    
+
 ];
 
 var timerEl = document.querySelector("#timerText");
@@ -74,17 +74,17 @@ startButton.addEventListener("click", countdown)
 
 
 function countdown() {
-  
-  interval = setInterval(function () {
+
+  interval = setInterval(function () {
     remainingTime--;
-    
+
     if (remainingTime <= 0) {
       clearInterval(interval);
       alert("Time's up!");
     }
-    timerEl.textContent = remainingTime;
-    }, 1000)
-  }
+    timerEl.textContent = remainingTime;
+  }, 1000)
+}
 
 var i = 0
 
@@ -100,11 +100,13 @@ function questionDisplay() {
     return;
   }
 
-  document.getElementById("questionText").textContent = questions[i].choices[0];
-  document.getElementById("OptionA").textContent = questions[i].choices[0];
-  document.getElementById("OptionB").textContent = questions[i].choices[1];
-  document.getElementById("OptionC").textContent = questions[i].choices[2];
-  document.getElementById("OptionD").textContent = questions[i].choices[3];
+  else {
+    document.getElementById("questionText").innerHTML = questions[i].title[0];
+    document.getElementById("OptionA").innerHTML = questions[i].choices[0];
+    document.getElementById("OptionB").innerHTML = questions[i].choices[1];
+    document.getElementById("OptionC").innerHTML = questions[i].choices[2];
+    document.getElementById("OptionD").innerHTML = questions[i].choices[3];
+  }
 
 }
 
@@ -122,13 +124,16 @@ function nextQuestion(event) {
   }
   else {
     userRightWrong = "Incorrect"
-    timerEl.textContent -= 5
+    remainingTime -= 5
   }
 
   document.getElementById("answer").textContent = userRightWrong;
   i++;
   showQuestions();
 }
+
+// so all of this down here is stuff i started to write and had no idea if it was right and i guess we will never know
+
 
 // var questyDisplay = document.getElementById("quizBody");
 
@@ -148,12 +153,6 @@ function nextQuestion(event) {
 //   optionB.innerHTML = questions.choices[1];
 //   optionB.innerHTML = questions.choice[2];
 //   optionC.innerHTML = questions.choice[3];
-// }
-
-
-
-// function clickHandler() {
-//   if 
 // }
 
 
