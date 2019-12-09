@@ -15,7 +15,7 @@ var questions = [
   {
     title: "Which Desert dominates a large area of Northern Africa?",
     choices: ["Kalahari", "Sahara", "Gobi", "Atacama"],
-    answer: "Gobi"
+    answer: "Sahara"
   },
 
   {
@@ -57,10 +57,11 @@ var questions = [
   {
     title: "What is the currency of Sweden?",
     choices: ["Euro", "Krona", "Franc", "Pound"],
-    answer: " "
+    answer: "Krona"
   },
 
 ];
+
 
 var timerEl = document.querySelector("#timerText");
 var startButton = document.querySelector("#startBtn");
@@ -68,12 +69,72 @@ var startingTime = document.querySelector("#timerText")
 var remainingTime = 75
 var interval;
 var userScore = 0;
+var i = 0
 
-startingTime.textContent = remainingTime
-startButton.addEventListener("click", countdown)
 
+
+//Scoreboard stuff 
+
+
+function storeScore() {
+  localStorage.setItem("userInitials", initials);
+  localStorage.setItem("yourScore", remainingTime);
+}
+
+
+
+
+// Quiz code
+
+
+function nextQuestion(event) {
+  console.log("Clicked on: " + event.target.id);
+  if (event.target.textContent == questions[i].answer) {
+    console.log("Correct!");
+    i++;
+    questionDisplay();
+  }
+  else {
+    console.log("Wrong!");
+    remainingTime -= 5;
+  }
+}
+
+
+
+function questionDisplay() {
+
+  if (i === questions.length) {
+    document.getElementById("questionText").textContent = "";
+    document.getElementById("OptionA").textContent = "";
+    document.getElementById("OptionB").textContent = "";
+    document.getElementById("OptionC").textContent = "";
+    document.getElementById("OptionA").textContent = "";
+    alert("All done!");
+    window.location.href = "scoreboard.html";
+    document.getElementById("yourScoreDisplay").textContent = "+ remainingTime +";
+    document.getElementById("submitButton").addEventListener("click", storeScore);
+  }
+
+  else {
+    document.getElementById("questionText").innerHTML = questions[i].title;
+    document.getElementById("OptionA").innerHTML = questions[i].choices[0];
+    document.getElementById("OptionB").innerHTML = questions[i].choices[1];
+    document.getElementById("OptionC").innerHTML = questions[i].choices[2];
+    document.getElementById("OptionD").innerHTML = questions[i].choices[3];
+  }
+
+  document.getElementById("OptionA").addEventListener("click", nextQuestion);
+  document.getElementById("OptionB").addEventListener("click", nextQuestion);
+  document.getElementById("OptionC").addEventListener("click", nextQuestion);
+  document.getElementById("OptionD").addEventListener("click", nextQuestion);
+
+  console.log(remainingTime);
+
+}
 
 function countdown() {
+  startButton.style.display = "none";
 
   interval = setInterval(function () {
     remainingTime--;
@@ -86,76 +147,24 @@ function countdown() {
   }, 1000)
 }
 
-var i = 0
 
 
-function questionDisplay() {
 
-  if (i === questions.length) {
-    document.getElementById("questionText").textContent = "";
-    document.getElementById("OptionA").textContent = "";
-    document.getElementById("OptionB").textContent = "";
-    document.getElementById("OptionC").textContent = "";
-    document.getElementById("OptionA").textContent = "";
-    return;
-  }
-
-  else {
-    document.getElementById("questionText").innerHTML = questions[i].title[0];
-    document.getElementById("OptionA").innerHTML = questions[i].choices[0];
-    document.getElementById("OptionB").innerHTML = questions[i].choices[1];
-    document.getElementById("OptionC").innerHTML = questions[i].choices[2];
-    document.getElementById("OptionD").innerHTML = questions[i].choices[3];
-  }
-
-}
-
-document.getElementById("OptionA").addEventListener("click", nextQuestion)
-document.getElementById("OptionB").addEventListener("click", nextQuestion)
-document.getElementById("OptionC").addEventListener("click", nextQuestion)
-document.getElementById("OptionD").addEventListener("click", nextQuestion)
+startingTime.textContent = remainingTime
+startButton.addEventListener("click", countdown)
+startButton.addEventListener("click", questionDisplay)
 
 
-var userRightWrong;
+// function countdown() {
+//   startButton.style.display = "none";
 
-function nextQuestion(event) {
-  if (event.target.textContent === questions[i].answer) {
-    userRightWrong = "Correct"
-  }
-  else {
-    userRightWrong = "Incorrect"
-    remainingTime -= 5
-  }
+//   interval = setInterval(function () {
+//     remainingTime--;
 
-  document.getElementById("answer").textContent = userRightWrong;
-  i++;
-  showQuestions();
-}
-
-// so all of this down here is stuff i started to write and had no idea if it was right and i guess we will never know
-
-
-// var questyDisplay = document.getElementById("quizBody");
-
-// document.getElementById("optionA")
-
-// var lastQuestion = questions.length - 1;
-// var currentQuestion = questions[0]
-
-// var optionA = document.getElementById("OptionA");
-// var optionB = document.getElementById("OptionB");
-// var optionC = document.getElementById("OptionC");
-// var optionD = document.getElementById("OptionA");
-
-// function displayQuestion(){  
-//   question.innerHTML = "<p>"+ currentQuestion +"</p>";
-//   optionA.innerHTML = questions.choices[0];
-//   optionB.innerHTML = questions.choices[1];
-//   optionB.innerHTML = questions.choice[2];
-//   optionC.innerHTML = questions.choice[3];
+//     if (remainingTime <= 0) {
+//       clearInterval(interval);
+//       alert("Time's up!");
+//     }
+//     timerEl.textContent = remainingTime;
+//   }, 1000)
 // }
-
-
-
-
-

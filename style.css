@@ -34,21 +34,25 @@
     padding-top: 40px;
 }
 
-.optionA {
+#OptionA {
     text-align: center;
 }
 
-.optionB {
+#OptionB {
     text-align: center;
 }
 
-.optionC {
+#OptionC {
     text-align: center;
 }
-.optionD {
+#OptionD {
     text-align: center;
 }
 
 #questionText {
     text-align: center;
+}
+
+#initials {
+    margin-left: 10px;
 }
