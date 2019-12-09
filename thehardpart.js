@@ -73,16 +73,6 @@ var i = 0
 
 
 
-//Scoreboard stuff 
-
-
-function storeScore() {
-  localStorage.setItem("userInitials", initials);
-  localStorage.setItem("yourScore", remainingTime);
-}
-
-
-
 
 // Quiz code
 
@@ -148,23 +138,16 @@ function countdown() {
 }
 
 
+//Scoreboard stuff 
+
+
+// function storeScore() {
+//   localStorage.setItem("userInitials", initials);
+//   localStorage.setItem("yourScore", remainingTime);
+// }
 
 
 startingTime.textContent = remainingTime
 startButton.addEventListener("click", countdown)
 startButton.addEventListener("click", questionDisplay)
 
-
-// function countdown() {
-//   startButton.style.display = "none";
-
-//   interval = setInterval(function () {
-//     remainingTime--;
-
-//     if (remainingTime <= 0) {
-//       clearInterval(interval);
-//       alert("Time's up!");
-//     }
-//     timerEl.textContent = remainingTime;
-//   }, 1000)
-// }
