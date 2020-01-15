@@ -63,13 +63,13 @@ var questions = [
 ];
 
 
-var timerEl = document.querySelector("#timerText");
 var startButton = document.querySelector("#startBtn");
 var startingTime = document.querySelector("#timerText")
 var remainingTime = 75
 var interval;
 var userScore = 0;
 var i = 0
+var finishTime = 0;
 
 
 
@@ -93,6 +93,7 @@ function nextQuestion(event) {
 
 
 function questionDisplay() {
+  startingTime.textContent = remainingTime
 
   if (i === questions.length) {
     document.getElementById("questionText").textContent = "";
@@ -101,9 +102,12 @@ function questionDisplay() {
     document.getElementById("OptionC").textContent = "";
     document.getElementById("OptionA").textContent = "";
     alert("All done!");
+    function storeScore() {
+      localStorage.setItem("currentscore", remainingTime);
+    }
+    storeScore();
     window.location.href = "scoreboard.html";
-    document.getElementById("yourScoreDisplay").textContent = "+ remainingTime +";
-    document.getElementById("submitButton").addEventListener("click", storeScore);
+    document.getElementById("yourScoreDisplay").textContent = localStorage.getItem(remainingTime);
   }
 
   else {
@@ -133,21 +137,11 @@ function countdown() {
       clearInterval(interval);
       alert("Time's up!");
     }
-    timerEl.textContent = remainingTime;
+    startingTime.textContent = remainingTime;
   }, 1000)
 }
 
 
-//Scoreboard stuff 
-
-
-// function storeScore() {
-//   localStorage.setItem("userInitials", initials);
-//   localStorage.setItem("yourScore", remainingTime);
-// }
-
-
-startingTime.textContent = remainingTime
 startButton.addEventListener("click", countdown)
 startButton.addEventListener("click", questionDisplay)
 

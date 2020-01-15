@@ -24,33 +24,29 @@
 
 
             <h3>Enter your initials below:</h3>
-                <form method="POST">
-                    <div class="input-group">
-                        <label for="initials">Your initials: </label>
-                        <input type="text" name="initials" id="initials" placeholder="" />
-                    </div>
-                    <div class="scorebox">
-                        <label for="yourScore">Your Score: </label> 
-                        <p name="yourScore" id="yourScoreDisplay"></p>
-                    </div>
-                    <button id="submitButton">Submit</button>
-                </form>
+            <div class="input-group">
+                <label for="initials">Your initials: </label>
+                <input type="text" id="initialsDisplay" placeholder="" />
+            </div>
+            <div class="scorebox">
+                <label for="yourScore">Your Score: <span id="yourScoreDisplay"></span></label>
+            </div>
+            <button id="submitButton">Submit</button>
 
 
-                <p id="scoreIntro" class="lead">
-                    Here are the champions of this quiz:
-                </p>
-
-
-                <ul id="scoreList">
-
+            <p id="scoreIntro" class="lead">
+                Here are the champions of this quiz:
+                <ul>
+                    <span id="scoreboardList"></span>
                 </ul>
+
+            </p>
 
 
         </div>
 
     </container>
-    <script src="thehardpart.js"></script>
+    <script src="scoreboardJS.js"></script>
 </body>
 
 </html>
